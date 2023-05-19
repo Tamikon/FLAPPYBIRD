@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FLAPPYBIRD", "FLAPPYBIRD.csproj", "{A0174FFC-0BAA-473C-96A7-9ADA3BD232FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainMenu", "..\MainMenu\MainMenu.csproj", "{22CDE470-9E23-4E1A-9279-78893A081193}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0174FFC-0BAA-473C-96A7-9ADA3BD232FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0174FFC-0BAA-473C-96A7-9ADA3BD232FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0174FFC-0BAA-473C-96A7-9ADA3BD232FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0174FFC-0BAA-473C-96A7-9ADA3BD232FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CDE470-9E23-4E1A-9279-78893A081193}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CDE470-9E23-4E1A-9279-78893A081193}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CDE470-9E23-4E1A-9279-78893A081193}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CDE470-9E23-4E1A-9279-78893A081193}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {03DF287A-5459-488F-81BC-859CF61A676D}
+	EndGlobalSection
+EndGlobal
