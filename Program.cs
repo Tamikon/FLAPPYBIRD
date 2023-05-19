@@ -16,7 +16,7 @@ namespace FLAPPYBIRD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Battlefield());
+            Application.Run(new Menu());
         } 
     }
 }

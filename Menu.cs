@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainMenu;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace FLAPPYBIRD
         public Menu()
         {
             InitializeComponent();
+        }
+
+        private void StartButton_Click(object sender, EventArgs e)
+        {
+            ChooseLevel chooseLevel = new ChooseLevel();
+            chooseLevel.ShowDialog();
         }
     }
 }

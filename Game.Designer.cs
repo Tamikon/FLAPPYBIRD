@@ -129,7 +129,7 @@
         private System.Windows.Forms.PictureBox pipeTop;
         private System.Windows.Forms.PictureBox ground;
         private System.Windows.Forms.PictureBox pipeBottom;
-        private System.Windows.Forms.Timer gameTimer;
+        public System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label scoreText;
     }
 }
