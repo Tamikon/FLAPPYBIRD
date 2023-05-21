@@ -52,6 +52,9 @@
     <Compile Include="ChooseLevel.designer.cs">
       <DependentUpon>ChooseLevel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enemy.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Game.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +118,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Flappy_Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hero.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enemy.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

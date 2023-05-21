@@ -23,24 +23,21 @@ namespace MainMenu
         {
             Battlefield game = new Battlefield();
             game.Show();
-
-            if (game.score == 2)
-            {
-                game.endGame();
-                MessageBox.Show("Уровень пройден!");
-            }
+            game.level = 1;
         }
 
         private void lvl2_Click(object sender, EventArgs e)
         {
             Battlefield game = new Battlefield();
             game.Show();
+            game.level = 2;
         }
 
         private void lvl3_Click(object sender, EventArgs e)
         {
             Battlefield game = new Battlefield();
             game.Show();
-        }
+            game.level = 3;
+        }   
     }
 }

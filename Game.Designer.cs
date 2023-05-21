@@ -35,10 +35,16 @@
             this.ground = new System.Windows.Forms.PictureBox();
             this.pipeBottom = new System.Windows.Forms.PictureBox();
             this.flappyBird = new System.Windows.Forms.PictureBox();
+            this.Enemy1 = new System.Windows.Forms.PictureBox();
+            this.Enemy3 = new System.Windows.Forms.PictureBox();
+            this.Enemy2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy2)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -60,6 +66,7 @@
             // 
             // pipeTop
             // 
+            this.pipeTop.BackColor = System.Drawing.Color.Transparent;
             this.pipeTop.Image = global::FLAPPYBIRD.Properties.Resources.pipedown;
             this.pipeTop.Location = new System.Drawing.Point(1920, -400);
             this.pipeTop.Name = "pipeTop";
@@ -80,6 +87,7 @@
             // 
             // pipeBottom
             // 
+            this.pipeBottom.BackColor = System.Drawing.Color.Transparent;
             this.pipeBottom.Image = global::FLAPPYBIRD.Properties.Resources.pipe;
             this.pipeBottom.Location = new System.Drawing.Point(1920, 750);
             this.pipeBottom.Name = "pipeBottom";
@@ -90,14 +98,50 @@
             // 
             // flappyBird
             // 
-            this.flappyBird.BackColor = System.Drawing.SystemColors.Highlight;
-            this.flappyBird.Image = global::FLAPPYBIRD.Properties.Resources.bird;
-            this.flappyBird.Location = new System.Drawing.Point(99, 64);
+            this.flappyBird.BackColor = System.Drawing.Color.Transparent;
+            this.flappyBird.Image = global::FLAPPYBIRD.Properties.Resources.hero;
+            this.flappyBird.Location = new System.Drawing.Point(77, 117);
             this.flappyBird.Name = "flappyBird";
-            this.flappyBird.Size = new System.Drawing.Size(97, 72);
+            this.flappyBird.Size = new System.Drawing.Size(76, 55);
             this.flappyBird.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.flappyBird.TabIndex = 0;
             this.flappyBird.TabStop = false;
+            // 
+            // Enemy1
+            // 
+            this.Enemy1.BackColor = System.Drawing.Color.Transparent;
+            this.Enemy1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Enemy1.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
+            this.Enemy1.Location = new System.Drawing.Point(1930, 50);
+            this.Enemy1.Name = "Enemy1";
+            this.Enemy1.Size = new System.Drawing.Size(76, 55);
+            this.Enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Enemy1.TabIndex = 5;
+            this.Enemy1.TabStop = false;
+            // 
+            // Enemy3
+            // 
+            this.Enemy3.BackColor = System.Drawing.Color.Transparent;
+            this.Enemy3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Enemy3.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
+            this.Enemy3.Location = new System.Drawing.Point(2230, 554);
+            this.Enemy3.Name = "Enemy3";
+            this.Enemy3.Size = new System.Drawing.Size(76, 55);
+            this.Enemy3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Enemy3.TabIndex = 6;
+            this.Enemy3.TabStop = false;
+            // 
+            // Enemy2
+            // 
+            this.Enemy2.BackColor = System.Drawing.Color.Transparent;
+            this.Enemy2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Enemy2.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
+            this.Enemy2.Location = new System.Drawing.Point(2030, 234);
+            this.Enemy2.Name = "Enemy2";
+            this.Enemy2.Size = new System.Drawing.Size(76, 55);
+            this.Enemy2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Enemy2.TabIndex = 7;
+            this.Enemy2.TabStop = false;
             // 
             // Battlefield
             // 
@@ -110,6 +154,9 @@
             this.Controls.Add(this.ground);
             this.Controls.Add(this.pipeBottom);
             this.Controls.Add(this.flappyBird);
+            this.Controls.Add(this.Enemy3);
+            this.Controls.Add(this.Enemy2);
+            this.Controls.Add(this.Enemy1);
             this.Name = "Battlefield";
             this.Text = "Flappy Bird";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gamekeeisdown);
@@ -118,6 +165,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,6 +181,9 @@
         private System.Windows.Forms.PictureBox pipeBottom;
         public System.Windows.Forms.Timer gameTimer;
         private System.Windows.Forms.Label scoreText;
+        private System.Windows.Forms.PictureBox Enemy1;
+        private System.Windows.Forms.PictureBox Enemy3;
+        private System.Windows.Forms.PictureBox Enemy2;
     }
 }
 

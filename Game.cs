@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.CompilerServices;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 
 namespace FLAPPYBIRD
 {
@@ -16,13 +17,17 @@ namespace FLAPPYBIRD
     {
         // Здесь начинаются переменные
         int pipeSpeed = 12;// скорость трубы по умолчанию определяется целым числом
+        int enemySpeed = 20;
         int gravity = 10;// скорость гравитации по умолчанию определяется целым числом
         public int score = 0;// целое число баллов по умолчанию установлено равным 0
+        public int level = 0;
         bool flag = true;
+        
 
         public Battlefield()
         {
             InitializeComponent();
+            DoubleBuffered = true;
         }
 
         private void gameTimerEvent(object sender, EventArgs e)
@@ -31,6 +36,14 @@ namespace FLAPPYBIRD
             pipeBottom.Left -= pipeSpeed;// свяжем левую позицию нижней трубы с целым числом скорости трубы, это уменьшит значение скорости трубы,поэтому она будет двигаться влево с каждым раз
             pipeTop.Left -= pipeSpeed;// то же самое происходит и с верхней трубой, уменьшим значение скорости трубы от левого положения с помощью знака -=
             ground.Left -= pipeSpeed;
+
+            if (level >= 2)
+            {
+                Enemy1.Left -= enemySpeed;
+                Enemy2.Left -= enemySpeed;
+                Enemy3.Left -= enemySpeed;
+            }
+
             scoreText.Text = "Score: " + score;// показать текущий счет 
             gravity += 2;
 
@@ -38,11 +51,24 @@ namespace FLAPPYBIRD
             {
                 // если расположение нижних труб равно -150, то мы сбросим его обратно на 800 и добавим 1 к счету
                 var rand = new Random();
-                var randY = rand.Next(0, 400);
-                pipeBottom.Location = new Point(Size.Width, Size.Height - 700 + randY);
-                pipeTop.Location = new Point(Size.Width, - 750 + randY);
+                var randPipe = rand.Next(0 , 400);
+                var randEnemy = rand.Next(0, 380);
+                pipeBottom.Location = new Point(Size.Width, Size.Height - 700 + randPipe);
+                pipeTop.Location = new Point(Size.Width, - 750 + randPipe);
+
+                if (level >= 2 && Enemy3.Left < 0)
+                {
+                    Enemy1.Location = new Point(Size.Width + 200, Size.Height - 700 + rand.Next(0, 380));
+                    Enemy2.Location = new Point(Size.Width + 600, Size.Height - 700 + rand.Next(0, 380));
+                    Enemy3.Location = new Point(Size.Width + 1000, Size.Height - 700 + rand.Next(0, 380));
+                }
+
                 score++;
-                 if (pipeSpeed < 30) pipeSpeed += 1;
+                if (pipeSpeed < 30)
+                {
+                    pipeSpeed ++;
+                    enemySpeed++;
+                } 
             }
 
             if (ground.Right < Size.Width + 30) ground.Left = 0;
@@ -50,8 +76,10 @@ namespace FLAPPYBIRD
             // приведенный ниже оператор if проверяет, ударилась ли птичка о землю, трубу или игрок покинул экран сверху
             if (flappyBird.Bounds.IntersectsWith(pipeBottom.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeTop.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(ground.Bounds) || flappyBird.Top < 0)
-
+                flappyBird.Bounds.IntersectsWith(ground.Bounds) || flappyBird.Top < 0 ||
+                flappyBird.Bounds.IntersectsWith(Enemy1.Bounds) ||
+                flappyBird.Bounds.IntersectsWith(Enemy2.Bounds) ||
+                flappyBird.Bounds.IntersectsWith(Enemy3.Bounds))
             {
                 // если какое-либо из условий выше, то мы запустим функцию завершения игры
                 scoreText.Text += " Game over!!!";// показать игру поверх текста в тексте счета
@@ -73,12 +101,21 @@ namespace FLAPPYBIRD
         {
             MessageBox.Show("На пересдачу");
             Thread.Sleep(1000);// Игра начнется через 1 секунду
-            // Следующий код возвращает все элементы на иходные позиций
+                               // Следующий код возвращает все элементы на иходные позиций
+            var rand = new Random();
             flappyBird.Top = 100;
             pipeBottom.Left = Size.Width;
             pipeTop.Left = Size.Width;
+             
+            if (level >= 2)
+            {
+                Enemy1.Location = new Point(Size.Width + 200, Size.Height - 700 + rand.Next(0, 380));
+                Enemy2.Location = new Point(Size.Width + 600, Size.Height - 700 + rand.Next(0, 380));
+                Enemy3.Location = new Point(Size.Width + 1000, Size.Height - 700 + rand.Next(0, 380));
+            }
 
-            pipeSpeed = 12;// скорость трубы 
+            pipeSpeed = 12;
+            enemySpeed = 20;// скорость трубы 
             gravity = 10;// скорость гравитации 
             score = 0;// счет
             gameTimer.Start();// Возобновить основной таймер
