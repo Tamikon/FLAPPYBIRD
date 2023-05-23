@@ -10,6 +10,11 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.CompilerServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
+using System.IO;
+using System.Resources;
+using System.Collections;
+using System.Reflection;
+using MainMenu;
 
 namespace FLAPPYBIRD
 {
@@ -22,7 +27,6 @@ namespace FLAPPYBIRD
         public int score = 0;// целое число баллов по умолчанию установлено равным 0
         public int level = 0;
         bool flag = true;
-        
 
         public Battlefield()
         {
@@ -44,7 +48,8 @@ namespace FLAPPYBIRD
                 Enemy3.Left -= enemySpeed;
             }
 
-            scoreText.Text = "Score: " + score;// показать текущий счет 
+            scoreText.Text = "Очки: " + score;
+            UserName.Text = "Киберспортсмен: " + ChooseLevel.user;
             gravity += 2;
 
             if (pipeBottom.Left < -150)  
@@ -82,7 +87,7 @@ namespace FLAPPYBIRD
                 flappyBird.Bounds.IntersectsWith(Enemy3.Bounds))
             {
                 // если какое-либо из условий выше, то мы запустим функцию завершения игры
-                scoreText.Text += " Game over!!!";// показать игру поверх текста в тексте счета
+
                 scoreText.Refresh();// Перезапускаем отрисовку счета очков игры
                 endGame();// Проигрыш
                 NewGame();// Перезапуск игры 

@@ -31,20 +31,21 @@
             this.components = new System.ComponentModel.Container();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             this.scoreText = new System.Windows.Forms.Label();
+            this.UserName = new System.Windows.Forms.Label();
             this.pipeTop = new System.Windows.Forms.PictureBox();
             this.ground = new System.Windows.Forms.PictureBox();
             this.pipeBottom = new System.Windows.Forms.PictureBox();
             this.flappyBird = new System.Windows.Forms.PictureBox();
-            this.Enemy1 = new System.Windows.Forms.PictureBox();
             this.Enemy3 = new System.Windows.Forms.PictureBox();
             this.Enemy2 = new System.Windows.Forms.PictureBox();
+            this.Enemy1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Enemy1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy1)).BeginInit();
             this.SuspendLayout();
             // 
             // gameTimer
@@ -63,6 +64,17 @@
             this.scoreText.Size = new System.Drawing.Size(105, 28);
             this.scoreText.TabIndex = 4;
             this.scoreText.Text = "Score: 0";
+            // 
+            // UserName
+            // 
+            this.UserName.AutoSize = true;
+            this.UserName.BackColor = System.Drawing.Color.Moccasin;
+            this.UserName.Font = new System.Drawing.Font("Arial", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.UserName.Location = new System.Drawing.Point(12, 953);
+            this.UserName.Name = "UserName";
+            this.UserName.Size = new System.Drawing.Size(228, 28);
+            this.UserName.TabIndex = 8;
+            this.UserName.Text = "Киберспортсмен:";
             // 
             // pipeTop
             // 
@@ -107,18 +119,6 @@
             this.flappyBird.TabIndex = 0;
             this.flappyBird.TabStop = false;
             // 
-            // Enemy1
-            // 
-            this.Enemy1.BackColor = System.Drawing.Color.Transparent;
-            this.Enemy1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.Enemy1.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
-            this.Enemy1.Location = new System.Drawing.Point(1930, 50);
-            this.Enemy1.Name = "Enemy1";
-            this.Enemy1.Size = new System.Drawing.Size(76, 55);
-            this.Enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.Enemy1.TabIndex = 5;
-            this.Enemy1.TabStop = false;
-            // 
             // Enemy3
             // 
             this.Enemy3.BackColor = System.Drawing.Color.Transparent;
@@ -143,12 +143,25 @@
             this.Enemy2.TabIndex = 7;
             this.Enemy2.TabStop = false;
             // 
+            // Enemy1
+            // 
+            this.Enemy1.BackColor = System.Drawing.Color.Transparent;
+            this.Enemy1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Enemy1.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
+            this.Enemy1.Location = new System.Drawing.Point(1930, 50);
+            this.Enemy1.Name = "Enemy1";
+            this.Enemy1.Size = new System.Drawing.Size(76, 55);
+            this.Enemy1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Enemy1.TabIndex = 5;
+            this.Enemy1.TabStop = false;
+            // 
             // Battlefield
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1904, 1041);
+            this.Controls.Add(this.UserName);
             this.Controls.Add(this.scoreText);
             this.Controls.Add(this.pipeTop);
             this.Controls.Add(this.ground);
@@ -165,9 +178,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.ground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.flappyBird)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Enemy1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Enemy2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Enemy1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,6 +197,7 @@
         private System.Windows.Forms.PictureBox Enemy1;
         private System.Windows.Forms.PictureBox Enemy3;
         private System.Windows.Forms.PictureBox Enemy2;
+        private System.Windows.Forms.Label UserName;
     }
 }
 
