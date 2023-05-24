@@ -26,6 +26,17 @@ namespace MainMenu
 
         public static string user;
 
+        public void NameEnter()
+        {
+            using (StreamWriter statsfile = new StreamWriter("C:\\Users\\stud\\Source\\Repos\\FLAPPYBIRD\\Resources\\Stats.txt", true))
+            {
+                user = Nickname.Text;
+                statsfile.Write(user + "......................");
+                statsfile.Close();
+            }
+        }
+
+
         private void lvl1_Click(object sender, EventArgs e)
         {
             if (Nickname.Text != "")
@@ -33,6 +44,7 @@ namespace MainMenu
                 Battlefield game = new Battlefield();
                 game.Show();
                 game.level = 1;
+                NameEnter();
             }
             else MessageBox.Show("Имя введи.");
         }
@@ -44,6 +56,7 @@ namespace MainMenu
                 Battlefield game = new Battlefield();
                 game.Show();
                 game.level = 2;
+                NameEnter();
             }
             else MessageBox.Show("Имя введи.");
         }
@@ -55,21 +68,9 @@ namespace MainMenu
                 Battlefield game = new Battlefield();
                 game.Show();
                 game.level = 3;
+                NameEnter();
             }
             else MessageBox.Show("Имя введи.");
-        }
-
-        private void Nickname_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                using (StreamWriter statsfile = new StreamWriter("C:\\Users\\richi\\source\\repos\\GITHUB\\Resources\\Stats.txt", true))
-                {
-                    user = Nickname.Text;
-                    statsfile.WriteLine(Nickname.Text);
-                    statsfile.Close();
-                }
-            }
         }
     }
 }

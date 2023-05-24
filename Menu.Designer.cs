@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.StartButton = new System.Windows.Forms.Button();
             this.StatisticsButton = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -45,9 +46,10 @@
             // StartButton
             // 
             this.StartButton.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartButton.Location = new System.Drawing.Point(261, 267);
+            this.StartButton.Location = new System.Drawing.Point(348, 329);
+            this.StartButton.Margin = new System.Windows.Forms.Padding(4);
             this.StartButton.Name = "StartButton";
-            this.StartButton.Size = new System.Drawing.Size(272, 48);
+            this.StartButton.Size = new System.Drawing.Size(363, 59);
             this.StartButton.TabIndex = 0;
             this.StartButton.Text = "Start game";
             this.StartButton.UseVisualStyleBackColor = true;
@@ -56,9 +58,10 @@
             // StatisticsButton
             // 
             this.StatisticsButton.Font = new System.Drawing.Font("MV Boli", 24F, System.Drawing.FontStyle.Bold);
-            this.StatisticsButton.Location = new System.Drawing.Point(261, 321);
+            this.StatisticsButton.Location = new System.Drawing.Point(348, 395);
+            this.StatisticsButton.Margin = new System.Windows.Forms.Padding(4);
             this.StatisticsButton.Name = "StatisticsButton";
-            this.StatisticsButton.Size = new System.Drawing.Size(272, 48);
+            this.StatisticsButton.Size = new System.Drawing.Size(363, 59);
             this.StatisticsButton.TabIndex = 1;
             this.StatisticsButton.Text = "Statistics";
             this.StatisticsButton.UseVisualStyleBackColor = true;
@@ -66,9 +69,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
-            this.pictureBox4.Location = new System.Drawing.Point(599, 215);
+            this.pictureBox4.Location = new System.Drawing.Point(799, 265);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(56, 40);
+            this.pictureBox4.Size = new System.Drawing.Size(75, 49);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
@@ -76,9 +80,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::FLAPPYBIRD.Properties.Resources.hero;
-            this.pictureBox2.Location = new System.Drawing.Point(86, 267);
+            this.pictureBox2.Location = new System.Drawing.Point(115, 329);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(78, 57);
+            this.pictureBox2.Size = new System.Drawing.Size(104, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
@@ -86,9 +91,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::FLAPPYBIRD.Properties.Resources.Flappy_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(88, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(661, 166);
+            this.pictureBox1.Size = new System.Drawing.Size(881, 204);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -96,9 +102,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::FLAPPYBIRD.Properties.Resources.pipe;
-            this.pictureBox5.Location = new System.Drawing.Point(543, 39);
+            this.pictureBox5.Location = new System.Drawing.Point(724, 48);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 109);
+            this.pictureBox5.Size = new System.Drawing.Size(53, 134);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 6;
             this.pictureBox5.TabStop = false;
@@ -106,19 +113,20 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::FLAPPYBIRD.Properties.Resources.enemy;
-            this.pictureBox3.Location = new System.Drawing.Point(658, 294);
+            this.pictureBox3.Location = new System.Drawing.Point(877, 362);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(85, 63);
+            this.pictureBox3.Size = new System.Drawing.Size(113, 78);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 7;
             this.pictureBox3.TabStop = false;
             // 
             // Menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox4);
@@ -126,6 +134,8 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.StatisticsButton);
             this.Controls.Add(this.StartButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Menu";
             this.Text = "Menu";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
