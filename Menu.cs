@@ -23,5 +23,15 @@ namespace FLAPPYBIRD
             ChooseLevel chooseLevel = new ChooseLevel();
             chooseLevel.ShowDialog();
         }
+
+        private void StatisticsButton_Click(object sender, EventArgs e)
+        {
+            new Statistics().Show();
+        }
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

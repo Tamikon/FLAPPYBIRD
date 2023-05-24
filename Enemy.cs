@@ -21,7 +21,6 @@ namespace FLAPPYBIRD
         public Enemy()
         {
             this.Location = new Point(Size.Width + 200, Size.Height - 700 + rand.Next(0, 380));
-
         }
     }
 }

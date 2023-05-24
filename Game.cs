@@ -28,11 +28,14 @@ namespace FLAPPYBIRD
         public int level = 0;
         bool flag = true;
         public static int finalscore = 0;
+        private ChooseLevel chslvl;
 
-        public Battlefield()
+        public Battlefield(ChooseLevel chslvl)
         {
             InitializeComponent();
             DoubleBuffered = true;
+            this.chslvl = chslvl;
+            UserName.Text = "Киберспортсмен: " + chslvl.user;
         }
 
         private void gameTimerEvent(object sender, EventArgs e)
@@ -42,6 +45,8 @@ namespace FLAPPYBIRD
             pipeTop.Left -= pipeSpeed;// то же самое происходит и с верхней трубой, уменьшим значение скорости трубы от левого положения с помощью знака -=
             ground.Left -= pipeSpeed;
 
+
+
             if (level >= 2)
             {
                 Enemy1.Left -= enemySpeed;
@@ -50,7 +55,6 @@ namespace FLAPPYBIRD
             }
 
             scoreText.Text = "Очки: " + score;
-            UserName.Text = "Киберспортсмен: " + ChooseLevel.user;
             gravity += 2;
 
             if (pipeBottom.Left < -150)
@@ -81,9 +85,10 @@ namespace FLAPPYBIRD
             if (ground.Right < Size.Width + 30) ground.Left = 0;
 
             // приведенный ниже оператор if проверяет, ударилась ли птичка о землю, трубу или игрок покинул экран сверху
-            /*if (flappyBird.Bounds.IntersectsWith(pipeBottom.Bounds) ||
+            if (flappyBird.Bounds.IntersectsWith(pipeBottom.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(pipeTop.Bounds) ||
-                flappyBird.Bounds.IntersectsWith(ground.Bounds) || flappyBird.Top < 0 ||
+                flappyBird.Bounds.IntersectsWith(ground.Bounds) ||
+                flappyBird.Top < 0 ||
                 flappyBird.Bounds.IntersectsWith(Enemy1.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(Enemy2.Bounds) ||
                 flappyBird.Bounds.IntersectsWith(Enemy3.Bounds))
@@ -100,19 +105,23 @@ namespace FLAPPYBIRD
                 {
                     Battlefield.ActiveForm.Close();
                 }
-            }*/
+            }
         }
 
         public void endGame()
         {
             // эта функция завершения игры, эта функция сработает, когда птица коснется земли или труб
             finalscore = score;
-            using (StreamWriter statsfile = new StreamWriter("C:\\Users\\stud\\Source\\Repos\\FLAPPYBIRD\\Resources\\Stats.txt", true))
+            using (StreamWriter statsfile = new StreamWriter(Path.GetFullPath("Stats.txt"), true))
             {
                 statsfile.WriteLine(finalscore);
             }
             gameTimer.Stop();// Остановить основной таймер
             flag = true;
+            chslvl.score = score;
+            chslvl.SaveScore();
+            score = 0;
+            chslvl.score = 0;
         }
 
         private void NewGame() //Эта чаcть кода при проигрыше начинает игру заново
@@ -130,11 +139,6 @@ namespace FLAPPYBIRD
                 Enemy1.Location = new Point(Size.Width + 200, Size.Height - 700 + rand.Next(0, 380));
                 Enemy2.Location = new Point(Size.Width + 600, Size.Height - 700 + rand.Next(0, 380));
                 Enemy3.Location = new Point(Size.Width + 1000, Size.Height - 700 + rand.Next(0, 380));
-            }
-
-            using (StreamWriter statsfile = new StreamWriter("C:\\Users\\stud\\Source\\Repos\\FLAPPYBIRD\\Resources\\Stats.txt", true))
-            {
-                statsfile.Write(ChooseLevel.user + "......................");
             }
 
             pipeSpeed = 12;
@@ -160,6 +164,16 @@ namespace FLAPPYBIRD
             // это событие игровая клавиша не нажата, связанное с главной формой; (пробел)
             if (e.KeyCode == Keys.Space)
                 flag = true;
+        }
+
+        private void Battlefield_Load(object sender, EventArgs e)
+        {
+            UserName.Text = "Киберспортсмен: " + chslvl.user;
+        }
+
+        private void Battlefield_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            endGame();
         }
     }
 }   

@@ -19,58 +19,59 @@ namespace MainMenu
 {
     public partial class ChooseLevel : Form
     {
+        private StatsClass statsClass = new StatsClass();
         public ChooseLevel()
         {
             InitializeComponent();
         }
 
-        public static string user;
+        public string user;
+        public int score;
 
-        public void NameEnter()
+        public void SaveScore()
         {
-            using (StreamWriter statsfile = new StreamWriter("C:\\Users\\stud\\Source\\Repos\\FLAPPYBIRD\\Resources\\Stats.txt", true))
+            using (StreamWriter statsfile = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Stats.txt", true))
             {
-                user = Nickname.Text;
-                statsfile.Write(user + "......................");
+                statsfile.Write(user + " " + score + "\n");
                 statsfile.Close();
             }
+            statsClass.AddStat(user, score);
         }
 
 
         private void lvl1_Click(object sender, EventArgs e)
         {
-            if (Nickname.Text != "")
-            {
-                Battlefield game = new Battlefield();
-                game.Show();
-                game.level = 1;
-                NameEnter();
-            }
-            else MessageBox.Show("Имя введи.");
+            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
+                user = Nickname.Text;
+            else user = "Дэбилоид";
+            Battlefield game = new Battlefield(this);
+            game.Show();
+            game.level = 1;
         }
 
         private void lvl2_Click(object sender, EventArgs e)
         {
-            if (Nickname.Text != "")
-            {
-                Battlefield game = new Battlefield();
-                game.Show();
-                game.level = 2;
-                NameEnter();
-            }
-            else MessageBox.Show("Имя введи.");
+            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
+                user = Nickname.Text;
+            else user = "Дэбилоид";
+            Battlefield game = new Battlefield(this);
+            game.Show();
+            game.level = 2;
         }
 
         private void lvl3_Click(object sender, EventArgs e)
         {
-            if (Nickname.Text != "")
-            {
-                Battlefield game = new Battlefield();
-                game.Show();
-                game.level = 3;
-                NameEnter();
-            }
-            else MessageBox.Show("Имя введи.");
+            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
+                user = Nickname.Text;
+            else user = "Дэбилоид";
+            Battlefield game = new Battlefield(this);
+            game.Show();
+            game.level = 3;
+        }
+
+        private void EscapeButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

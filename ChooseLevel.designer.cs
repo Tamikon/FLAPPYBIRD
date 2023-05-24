@@ -29,32 +29,38 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChooseLevel));
-            this.label1 = new System.Windows.Forms.Label();
+            this.LevelInput = new System.Windows.Forms.Label();
             this.lvl3 = new System.Windows.Forms.Button();
             this.lvl2 = new System.Windows.Forms.Button();
             this.lvl1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.NameInput = new System.Windows.Forms.Label();
             this.Nickname = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.EscapeButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // LevelInput
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MV Boli", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(349, 240);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(403, 49);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Выберите уровень";
+            this.LevelInput.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.LevelInput, 3);
+            this.LevelInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LevelInput.Font = new System.Drawing.Font("MV Boli", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelInput.ForeColor = System.Drawing.Color.Snow;
+            this.LevelInput.Location = new System.Drawing.Point(231, 180);
+            this.LevelInput.Name = "LevelInput";
+            this.LevelInput.Size = new System.Drawing.Size(336, 90);
+            this.LevelInput.TabIndex = 0;
+            this.LevelInput.Text = "Выберите уровень";
+            this.LevelInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lvl3
             // 
+            this.lvl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
-            this.lvl3.Location = new System.Drawing.Point(743, 319);
-            this.lvl3.Margin = new System.Windows.Forms.Padding(4);
+            this.lvl3.Location = new System.Drawing.Point(573, 273);
             this.lvl3.Name = "lvl3";
-            this.lvl3.Size = new System.Drawing.Size(144, 130);
+            this.lvl3.Size = new System.Drawing.Size(108, 84);
             this.lvl3.TabIndex = 3;
             this.lvl3.Text = "3";
             this.lvl3.UseVisualStyleBackColor = true;
@@ -62,11 +68,11 @@
             // 
             // lvl2
             // 
+            this.lvl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
-            this.lvl2.Location = new System.Drawing.Point(464, 319);
-            this.lvl2.Margin = new System.Windows.Forms.Padding(4);
+            this.lvl2.Location = new System.Drawing.Point(345, 273);
             this.lvl2.Name = "lvl2";
-            this.lvl2.Size = new System.Drawing.Size(144, 130);
+            this.lvl2.Size = new System.Drawing.Size(108, 84);
             this.lvl2.TabIndex = 4;
             this.lvl2.Text = "2";
             this.lvl2.UseVisualStyleBackColor = true;
@@ -74,64 +80,108 @@
             // 
             // lvl1
             // 
+            this.lvl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lvl1.Location = new System.Drawing.Point(181, 319);
-            this.lvl1.Margin = new System.Windows.Forms.Padding(4);
+            this.lvl1.Location = new System.Drawing.Point(117, 273);
             this.lvl1.Name = "lvl1";
-            this.lvl1.Size = new System.Drawing.Size(143, 130);
+            this.lvl1.Size = new System.Drawing.Size(108, 84);
             this.lvl1.TabIndex = 5;
             this.lvl1.Text = "1";
             this.lvl1.UseVisualStyleBackColor = true;
             this.lvl1.Click += new System.EventHandler(this.lvl1_Click);
             // 
-            // label2
+            // NameInput
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("MV Boli", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(409, 9);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(286, 49);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Введите имя";
+            this.NameInput.AutoSize = true;
+            this.tableLayoutPanel1.SetColumnSpan(this.NameInput, 3);
+            this.NameInput.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.NameInput.Font = new System.Drawing.Font("MV Boli", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameInput.ForeColor = System.Drawing.Color.Snow;
+            this.NameInput.Location = new System.Drawing.Point(231, 0);
+            this.NameInput.Name = "NameInput";
+            this.NameInput.Size = new System.Drawing.Size(336, 90);
+            this.NameInput.TabIndex = 6;
+            this.NameInput.Text = "Введите имя";
+            this.NameInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Nickname
             // 
-            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Nickname.Location = new System.Drawing.Point(399, 63);
-            this.Nickname.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.SetColumnSpan(this.Nickname, 3);
+            this.Nickname.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Nickname.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Nickname.Location = new System.Drawing.Point(231, 93);
             this.Nickname.Name = "Nickname";
-            this.Nickname.Size = new System.Drawing.Size(291, 30);
+            this.Nickname.Size = new System.Drawing.Size(336, 80);
             this.Nickname.TabIndex = 7;
+            this.Nickname.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 7;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28572F));
+            this.tableLayoutPanel1.Controls.Add(this.EscapeButton, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lvl3, 5, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lvl2, 3, 3);
+            this.tableLayoutPanel1.Controls.Add(this.lvl1, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.NameInput, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.LevelInput, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Nickname, 2, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
+            this.tableLayoutPanel1.TabIndex = 8;
+            // 
+            // EscapeButton
+            // 
+            this.EscapeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EscapeButton.Location = new System.Drawing.Point(3, 3);
+            this.EscapeButton.Name = "EscapeButton";
+            this.EscapeButton.Size = new System.Drawing.Size(107, 84);
+            this.EscapeButton.TabIndex = 8;
+            this.EscapeButton.Text = "Назад";
+            this.EscapeButton.UseVisualStyleBackColor = true;
+            this.EscapeButton.Click += new System.EventHandler(this.EscapeButton_Click);
             // 
             // ChooseLevel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.Nickname);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lvl1);
-            this.Controls.Add(this.lvl2);
-            this.Controls.Add(this.lvl3);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChooseLevel";
-            this.Text = "Form1";
+            this.Text = "Выбор уровня";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LevelInput;
         private System.Windows.Forms.Button lvl3;
         private System.Windows.Forms.Button lvl2;
         private System.Windows.Forms.Button lvl1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label NameInput;
         internal System.Windows.Forms.TextBox Nickname;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button EscapeButton;
     }
 }
