@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ChooseLevel.cs">
       <SubType>Form</SubType>
     </Compile>

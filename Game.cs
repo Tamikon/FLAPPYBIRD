@@ -29,6 +29,8 @@ namespace FLAPPYBIRD
         bool flag = true;
         public static int finalscore = 0;
         private ChooseLevel chslvl;
+        List<Bullet> bullets = new List<Bullet>();
+
 
         public Battlefield(ChooseLevel chslvl)
         {
@@ -45,6 +47,28 @@ namespace FLAPPYBIRD
             pipeTop.Left -= pipeSpeed;// то же самое происходит и с верхней трубой, уменьшим значение скорости трубы от левого положения с помощью знака -=
             ground.Left -= pipeSpeed;
 
+            foreach (Bullet pulka in bullets)
+            {
+                var rand = new Random();
+                var randEnemy = rand.Next(0, 380);
+
+                pulka.Left += Bullet.speed;
+                if (pulka.Left > Size.Width)
+                {
+                    /*bullets.Remove(pulka);
+                    Controls.Remove(pulka);*/
+                }
+
+                if (pulka.Bounds.IntersectsWith(Enemy1.Bounds))
+                    Enemy1.Location = new Point(Size.Width + 1000, Size.Height - 700 + rand.Next(0, 380));
+
+                if (pulka.Bounds.IntersectsWith(Enemy2.Bounds))
+                    Enemy2.Location = new Point(Size.Width + 1000, Size.Height - 700 + rand.Next(0, 380));
+
+                if (pulka.Bounds.IntersectsWith(Enemy3.Bounds))
+                    Enemy3.Location = new Point(Size.Width + 1000, Size.Height - 700 + rand.Next(0, 380));
+
+            }
 
 
             if (level >= 2)
@@ -156,6 +180,12 @@ namespace FLAPPYBIRD
                 // если нажата клавиша пробела, то гравитация будет установлена ​​на -6
                 gravity = -20;
                 flag = false;
+
+                Bullet bullet = new Bullet();
+                bullet.Location = flappyBird.Location;
+                bullet.Image = Properties.Resources.bird;
+                bullets.Add(bullet);
+                Controls.Add(bullet);
             }
         }
 
