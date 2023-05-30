@@ -12,7 +12,7 @@ using System.Runtime.CompilerServices;
 
 namespace FLAPPYBIRD
 {
-    public class Enemy : PictureBox
+    public class Enemy : PictureBox //класс Enemy не дописан и пока что не используется
     {
         int enemySpeed = 20;
         Point location;

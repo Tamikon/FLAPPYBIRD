@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Reflection.Emit;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Text;
@@ -43,7 +44,7 @@ namespace MainMenu
         {
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
-            else user = "Дэбилоид";
+            else user = "Незнакомец";
             Battlefield game = new Battlefield(this);
             game.Show();
             game.level = 1;
@@ -53,7 +54,7 @@ namespace MainMenu
         {
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
-            else user = "Дэбилоид";
+            else user = "Незнакомец";
             Battlefield game = new Battlefield(this);
             game.Show();
             game.level = 2;
@@ -63,7 +64,7 @@ namespace MainMenu
         {
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
-            else user = "Дэбилоид";
+            else user = "Незнакомец";
             Battlefield game = new Battlefield(this);
             game.Show();
             game.level = 3;

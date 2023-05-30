@@ -180,6 +180,7 @@
             this.Load += new System.EventHandler(this.Battlefield_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gamekeeisdown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.gamekeyisup);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Battlefield_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.pipeTop)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ground)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pipeBottom)).EndInit();

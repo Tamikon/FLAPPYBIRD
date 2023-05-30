@@ -12,12 +12,13 @@ namespace FLAPPYBIRD
     internal class Bullet : PictureBox
     {
         public static int speed = 40;
-        public static int posX;
-        public static int posY;
 
-        public Bullet()
+        public Bullet(PictureBox spawnPlace)
         {
-            this.Location = new Point(posX, posY);
+            this.Location = spawnPlace.Location;
+            this.Image = Properties.Resources.bullet;
+            this.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Size = new Size(60, 40);
         }
     }
 }

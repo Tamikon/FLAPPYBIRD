@@ -40,7 +40,7 @@ namespace FLAPPYBIRD
         /// </summary>
         public void ResetStats()
         {
-            File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Stats.txt");
+            File.Delete(path);
             this.names.Clear();
             this.scores.Clear();
         }
@@ -74,7 +74,7 @@ namespace FLAPPYBIRD
         /// </summary>
         private void SaveStats()
         {
-            File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\Stats.txt");
+            File.Delete(path);
             StreamWriter f = new StreamWriter(path, true);
             for (int i = 0; i < this.names.Count; i++)
             {

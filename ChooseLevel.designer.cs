@@ -51,43 +51,46 @@
             this.LevelInput.Name = "LevelInput";
             this.LevelInput.Size = new System.Drawing.Size(336, 90);
             this.LevelInput.TabIndex = 0;
-            this.LevelInput.Text = "Выберите уровень";
+            this.LevelInput.Text = "Выберите уровень сложности";
             this.LevelInput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lvl3
             // 
+            this.lvl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.lvl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
+            this.lvl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.lvl3.Location = new System.Drawing.Point(573, 273);
             this.lvl3.Name = "lvl3";
             this.lvl3.Size = new System.Drawing.Size(108, 84);
             this.lvl3.TabIndex = 3;
-            this.lvl3.Text = "3";
-            this.lvl3.UseVisualStyleBackColor = true;
+            this.lvl3.Text = "сложный";
+            this.lvl3.UseVisualStyleBackColor = false;
             this.lvl3.Click += new System.EventHandler(this.lvl3_Click);
             // 
             // lvl2
             // 
+            this.lvl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lvl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F);
+            this.lvl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.lvl2.Location = new System.Drawing.Point(345, 273);
             this.lvl2.Name = "lvl2";
             this.lvl2.Size = new System.Drawing.Size(108, 84);
             this.lvl2.TabIndex = 4;
-            this.lvl2.Text = "2";
-            this.lvl2.UseVisualStyleBackColor = true;
+            this.lvl2.Text = "средний";
+            this.lvl2.UseVisualStyleBackColor = false;
             this.lvl2.Click += new System.EventHandler(this.lvl2_Click);
             // 
             // lvl1
             // 
+            this.lvl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.lvl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lvl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lvl1.Location = new System.Drawing.Point(117, 273);
             this.lvl1.Name = "lvl1";
             this.lvl1.Size = new System.Drawing.Size(108, 84);
             this.lvl1.TabIndex = 5;
-            this.lvl1.Text = "1";
-            this.lvl1.UseVisualStyleBackColor = true;
+            this.lvl1.Text = "лёгкий";
+            this.lvl1.UseVisualStyleBackColor = false;
             this.lvl1.Click += new System.EventHandler(this.lvl1_Click);
             // 
             // NameInput
