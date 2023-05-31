@@ -1,28 +1,27 @@
 ﻿using MainMenu;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace FLAPPYBIRD
 {
     public partial class Menu : Form
     {
+        public SoundPlayer startmenu = new SoundPlayer(Properties.Resources.mainmenu);
+        public SoundPlayer chooselevel = new SoundPlayer(Properties.Resources.gaming);
+
         public Menu()
         {
             InitializeComponent();
+            startmenu.PlayLooping();
         }
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            chooselevel.PlayLooping();
             ChooseLevel chooseLevel = new ChooseLevel();
             chooseLevel.ShowDialog();
-        }
+        } 
 
         private void StatisticsButton_Click(object sender, EventArgs e)
         {

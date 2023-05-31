@@ -141,5 +141,20 @@
   <ItemGroup>
     <None Include="Resources\bullet1.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fonMenu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\lose.wav" />
+    <Content Include="Resources\gaming.wav" />
+    <Content Include="Resources\level3.wav" />
+    <Content Include="Resources\mainmenu.wav" />
+    <Content Include="Resources\level1.wav" />
+    <Content Include="Resources\level2.wav" />
+    <Content Include="Resources\shoot.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

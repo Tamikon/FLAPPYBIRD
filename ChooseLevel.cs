@@ -1,26 +1,22 @@
 ﻿using FLAPPYBIRD;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace MainMenu
 {
     public partial class ChooseLevel : Form
     {
         private StatsClass statsClass = new StatsClass();
+        public SoundPlayer startmenu = new SoundPlayer(FLAPPYBIRD.Properties.Resources.mainmenu);
+        public SoundPlayer chooselevel = new SoundPlayer(FLAPPYBIRD.Properties.Resources.gaming);
+
+        public SoundPlayer soundlvl1 = new SoundPlayer(FLAPPYBIRD.Properties.Resources.level1);
+        public SoundPlayer soundlvl2 = new SoundPlayer(FLAPPYBIRD.Properties.Resources.level2);
+        public SoundPlayer soundlvl3 = new SoundPlayer(FLAPPYBIRD.Properties.Resources.level3);
+
+
         public ChooseLevel()
         {
             InitializeComponent();
@@ -40,7 +36,7 @@ namespace MainMenu
         }
 
 
-        private void lvl1_Click(object sender, EventArgs e)
+        public void lvl1_Click(object sender, EventArgs e)
         {
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
@@ -48,6 +44,7 @@ namespace MainMenu
             Battlefield game = new Battlefield(this);
             game.Show();
             game.level = 1;
+            soundlvl1.PlayLooping();
         }
 
         private void lvl2_Click(object sender, EventArgs e)
@@ -58,6 +55,7 @@ namespace MainMenu
             Battlefield game = new Battlefield(this);
             game.Show();
             game.level = 2;
+            soundlvl2.PlayLooping();
         }
 
         private void lvl3_Click(object sender, EventArgs e)
@@ -68,11 +66,13 @@ namespace MainMenu
             Battlefield game = new Battlefield(this);
             game.Show();
             game.level = 3;
+            soundlvl3.PlayLooping();
         }
 
         private void EscapeButton_Click(object sender, EventArgs e)
         {
             this.Close();
+            startmenu.PlayLooping();
         }
     }
 }

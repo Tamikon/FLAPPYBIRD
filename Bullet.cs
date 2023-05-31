@@ -19,6 +19,7 @@ namespace FLAPPYBIRD
             this.Image = Properties.Resources.bullet;
             this.SizeMode = PictureBoxSizeMode.StretchImage;
             this.Size = new Size(60, 40);
+            this.BackColor = Color.Transparent;
         }
     }
 }

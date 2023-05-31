@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 using MainMenu;
+using System.Media;
 
 
 namespace FLAPPYBIRD
@@ -12,7 +13,7 @@ namespace FLAPPYBIRD
     public partial class Battlefield : Form
     {
         // Здесь начинаются переменные
-        private int pipeSpeed = 12;// скорость трубы 
+        private int pipeSpeed = 17;// скорость трубы 
         private int enemySpeed = 20;// скорость врагов
         private int gravity = 10;// скорость гравитации 
         private bool flag = true;
@@ -23,6 +24,10 @@ namespace FLAPPYBIRD
         private ChooseLevel chslvl;
         List<Bullet> bullets = new List<Bullet>();
 
+        public SoundPlayer exit = new SoundPlayer(Properties.Resources.gaming);
+        public SoundPlayer soundlvl1 = new SoundPlayer(Properties.Resources.level1);
+        public SoundPlayer soundlvl2 = new SoundPlayer(Properties.Resources.level2);
+        public SoundPlayer soundlvl3 = new SoundPlayer(Properties.Resources.level3);
 
         public Battlefield(ChooseLevel chslvl)
         {
@@ -93,7 +98,8 @@ namespace FLAPPYBIRD
                 Enemy1.Size = new Size(100, 70);
                 Enemy2.Size = new Size(100, 70);
                 Enemy3.Size = new Size(100, 70);
-                enemySpeed = 30;
+                enemySpeed = 33;
+                pipeSpeed = 25;
                 beginFlag = true;
             }
 
@@ -115,7 +121,7 @@ namespace FLAPPYBIRD
                 }
 
                 score++;
-                if (pipeSpeed < 30)//ускоряем игру 
+                if (pipeSpeed < 50)//ускоряем игру 
                 {
                     pipeSpeed++;
                     enemySpeed++;
@@ -141,6 +147,7 @@ namespace FLAPPYBIRD
                 }
                 else
                 {
+                    exit.PlayLooping();
                     Battlefield.ActiveForm.Close();
                 }
             }
