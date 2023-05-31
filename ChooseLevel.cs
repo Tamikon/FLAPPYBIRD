@@ -9,17 +9,15 @@ namespace MainMenu
     public partial class ChooseLevel : Form
     {
         private StatsClass statsClass = new StatsClass();
-        public SoundPlayer startmenu = new SoundPlayer(FLAPPYBIRD.Properties.Resources.mainmenu);
-        public SoundPlayer chooselevel = new SoundPlayer(FLAPPYBIRD.Properties.Resources.gaming);
 
-        public SoundPlayer soundlvl1 = new SoundPlayer(FLAPPYBIRD.Properties.Resources.level1);
-        public SoundPlayer soundlvl2 = new SoundPlayer(FLAPPYBIRD.Properties.Resources.level2);
-        public SoundPlayer soundlvl3 = new SoundPlayer(FLAPPYBIRD.Properties.Resources.level3);
+        public SoundPlayer chooselevel = new SoundPlayer(FLAPPYBIRD.Properties.Resources.gaming);
+        public SoundPlayer menu = new SoundPlayer(FLAPPYBIRD.Properties.Resources.mainmenu);
 
 
         public ChooseLevel()
         {
             InitializeComponent();
+            playMusic();
         }
 
         public string user;
@@ -35,6 +33,10 @@ namespace MainMenu
             statsClass.AddStat(user, score);
         }
 
+        public void playMusic()
+        {
+            chooselevel.PlayLooping();
+        }
 
         public void lvl1_Click(object sender, EventArgs e)
         {
@@ -42,9 +44,9 @@ namespace MainMenu
                 user = Nickname.Text;
             else user = "Незнакомец";
             Battlefield game = new Battlefield(this);
-            game.Show();
             game.level = 1;
-            soundlvl1.PlayLooping();
+            game.Show();
+            chooselevel.Stop();
         }
 
         private void lvl2_Click(object sender, EventArgs e)
@@ -53,9 +55,9 @@ namespace MainMenu
                 user = Nickname.Text;
             else user = "Незнакомец";
             Battlefield game = new Battlefield(this);
-            game.Show();
             game.level = 2;
-            soundlvl2.PlayLooping();
+            game.Show();
+            chooselevel.Stop();
         }
 
         private void lvl3_Click(object sender, EventArgs e)
@@ -64,15 +66,16 @@ namespace MainMenu
                 user = Nickname.Text;
             else user = "Незнакомец";
             Battlefield game = new Battlefield(this);
-            game.Show();
             game.level = 3;
-            soundlvl3.PlayLooping();
+            game.Show();
+            chooselevel.Stop();
         }
 
         private void EscapeButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            startmenu.PlayLooping();
+            menu.PlayLooping();
+
         }
     }
 }

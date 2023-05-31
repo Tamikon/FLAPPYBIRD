@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bullet.cs">
@@ -149,7 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\lose.wav" />
-    <Content Include="Resources\gaming.wav" />
+    <Resource Include="Resources\gaming.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Content Include="Resources\level3.wav" />
     <Content Include="Resources\mainmenu.wav" />
     <Content Include="Resources\level1.wav" />

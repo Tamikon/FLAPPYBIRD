@@ -6,7 +6,7 @@ using System.Threading;
 using System.IO;
 using MainMenu;
 using System.Media;
-
+using System.Windows.Media;
 
 namespace FLAPPYBIRD
 {
@@ -24,10 +24,10 @@ namespace FLAPPYBIRD
         private ChooseLevel chslvl;
         List<Bullet> bullets = new List<Bullet>();
 
-        public SoundPlayer exit = new SoundPlayer(Properties.Resources.gaming);
-        public SoundPlayer soundlvl1 = new SoundPlayer(Properties.Resources.level1);
-        public SoundPlayer soundlvl2 = new SoundPlayer(Properties.Resources.level2);
-        public SoundPlayer soundlvl3 = new SoundPlayer(Properties.Resources.level3);
+        public MediaPlayer mediaPlayer = new MediaPlayer();
+        public MediaPlayer shooting = new MediaPlayer();
+        
+        public SoundPlayer fail = new SoundPlayer(Properties.Resources.lose);
 
         public Battlefield(ChooseLevel chslvl)
         {
@@ -35,6 +35,9 @@ namespace FLAPPYBIRD
             DoubleBuffered = true;
             this.chslvl = chslvl;
             UserName.Text = "Киберспортсмен: " + chslvl.user;
+            
+            
+            //C:\Program Files(x86)\Reference Assemblies\Microsoft\Framework.NETFramework\v4.5
         }
 
         private void Enemysp()//Спаун врагов
@@ -47,6 +50,7 @@ namespace FLAPPYBIRD
 
         private void Bulletdamage()//Урон от пуль 
         {
+            //todo: поменять на FOR
             foreach (Bullet pulka in bullets)
             {
                 var rand = new Random();
@@ -54,8 +58,10 @@ namespace FLAPPYBIRD
                 pulka.Left += Bullet.speed;
                 if (pulka.Left > Size.Width)
                 {
-                    /*bullets.Remove(pulka);
-                    Controls.Remove(pulka);*/
+                    //todo: удалять по индексу RemoveAt
+                    //bullets.Remove(pulka);
+                    //Controls.Remove(pulka);
+                    //GC.Collect();
                 }
                 if (pulka.Bounds.IntersectsWith(Enemy1.Bounds))
                 {
@@ -74,6 +80,8 @@ namespace FLAPPYBIRD
                     Enemy3.Location = new Point(Size.Width, Size.Height - 700 + rand.Next(0, 380));
                     score++;
                 }
+
+                //todo: при попадании по врагу также удалять пули и врагов
             }
         }
 
@@ -141,15 +149,12 @@ namespace FLAPPYBIRD
                 // если какое-либо из условий выше, то мы запустим функцию завершения игры
                 scoreText.Refresh();// Перезапускаем отрисовку счета очков игры
                 endGame();// Проигрыш
+
                 if (MessageBox.Show("На пересдачу", "", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    NewGame();// Перезапуск игры 
+                    NewGame();// Перезапуск игры  
                 }
-                else
-                {
-                    exit.PlayLooping();
-                    Battlefield.ActiveForm.Close();
-                }
+                else Battlefield.ActiveForm.Close();
             }
         }
 
@@ -157,6 +162,8 @@ namespace FLAPPYBIRD
         {
             // эта функция завершения игры, эта функция сработает, когда птица коснется земли или труб
             finalscore = score;
+            mediaPlayer.Stop();
+            fail.PlayLooping();
             using (StreamWriter statsfile = new StreamWriter(Path.GetFullPath("Stats.txt"), true))
             {
                 statsfile.WriteLine(finalscore);
@@ -170,22 +177,32 @@ namespace FLAPPYBIRD
             chslvl.score = 0;
         }
 
+        private void RestartSound()
+        {
+            mediaPlayer.Stop();
+            if (level == 1) mediaPlayer.Open(new Uri(Environment.CurrentDirectory + "\\level1.wav"));
+            else if (level == 2) mediaPlayer.Open(new Uri(Environment.CurrentDirectory + "\\level2.wav"));
+            else if (level == 3) mediaPlayer.Open(new Uri(Environment.CurrentDirectory + "\\level3.wav"));
+            mediaPlayer.Play();
+        }
+
         private void NewGame() //Эта чаcть кода при проигрыше начинает игру заново
         {
             Thread.Sleep(1000);// Игра начнется через 1 секунду
+            fail.Stop();
 
+            RestartSound();
+          
             // Следующий код возвращает все элементы на иходные позиций
             flappyBird.Top = 100;
             pipeBottom.Left = Size.Width;
             pipeTop.Left = Size.Width;
-            if (level >= 2)
-            {
-                Enemysp();
-            }
             pipeSpeed = 12;// скорость трубы
             enemySpeed = 20;// скорость врагов
             gravity = 10;// скорость гравитации 
             score = 0;// счет
+
+            if (level >= 2) Enemysp();
             gameTimer.Start();// Возобновить основной таймер
         }
 
@@ -207,18 +224,29 @@ namespace FLAPPYBIRD
         private void Battlefield_Load(object sender, EventArgs e)
         {
             UserName.Text = "Киберспортсмен: " + chslvl.user;
+            RestartSound();
         }
 
         private void Battlefield_FormClosing(object sender, FormClosingEventArgs e)
         {
             endGame();
+            mediaPlayer.Stop();
+            mediaPlayer.Close();
+            chslvl.playMusic();
         }
 
+
+        //todo: сделать кд для выстрелов
         private void Battlefield_MouseDown(object sender, MouseEventArgs e)
         {
-            Bullet bullet = new Bullet(flappyBird);
-            bullets.Add(bullet);
-            Controls.Add(bullet);
+            if(level >= 2)
+            {
+                Bullet bullet = new Bullet(flappyBird);
+                shooting.Open(new Uri(Environment.CurrentDirectory + "\\shoot.wav"));
+                shooting.Play();
+                bullets.Add(bullet);
+                Controls.Add(bullet);
+            }
         }
     }
 }   

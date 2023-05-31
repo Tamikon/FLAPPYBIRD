@@ -8,7 +8,6 @@ namespace FLAPPYBIRD
     public partial class Menu : Form
     {
         public SoundPlayer startmenu = new SoundPlayer(Properties.Resources.mainmenu);
-        public SoundPlayer chooselevel = new SoundPlayer(Properties.Resources.gaming);
 
         public Menu()
         {
@@ -18,7 +17,6 @@ namespace FLAPPYBIRD
 
         private void StartButton_Click(object sender, EventArgs e)
         {
-            chooselevel.PlayLooping();
             ChooseLevel chooseLevel = new ChooseLevel();
             chooseLevel.ShowDialog();
         } 
