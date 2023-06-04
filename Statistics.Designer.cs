@@ -60,6 +60,7 @@
             // EmptyLabel
             // 
             this.EmptyLabel.AutoSize = true;
+            this.EmptyLabel.BackColor = System.Drawing.Color.Transparent;
             this.EmptyLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EmptyLabel.Font = new System.Drawing.Font("MV Boli", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmptyLabel.Location = new System.Drawing.Point(0, 0);
@@ -75,6 +76,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.BackgroundImage = global::FLAPPYBIRD.Properties.Resources.fon;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.EmptyLabel);
             this.Controls.Add(this.ClearStats);

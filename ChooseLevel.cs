@@ -1,8 +1,11 @@
 ﻿using FLAPPYBIRD;
 using System;
+using System.Diagnostics.Contracts;
 using System.IO;
 using System.Media;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace MainMenu
 {
@@ -10,14 +13,16 @@ namespace MainMenu
     {
         private StatsClass statsClass = new StatsClass();
 
-        public SoundPlayer chooselevel = new SoundPlayer(FLAPPYBIRD.Properties.Resources.gaming);
-        public SoundPlayer menu = new SoundPlayer(FLAPPYBIRD.Properties.Resources.mainmenu);
+        MediaPlayer chooselevel = new MediaPlayer();
+        MediaPlayer select = new MediaPlayer();
 
+        FLAPPYBIRD.Menu menu;
 
         public ChooseLevel()
         {
-            InitializeComponent();
+            select.Open(new Uri(Environment.CurrentDirectory + "\\select.wav"));
             playMusic();
+            InitializeComponent();
         }
 
         public string user;
@@ -35,14 +40,16 @@ namespace MainMenu
 
         public void playMusic()
         {
-            chooselevel.PlayLooping();
+            chooselevel.Open(new Uri(Environment.CurrentDirectory + "\\gaming.wav"));
+            chooselevel.Play();
         }
 
         public void lvl1_Click(object sender, EventArgs e)
         {
+            select.Play();
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
-            else user = "Незнакомец";
+            else user = "NoName";
             Battlefield game = new Battlefield(this);
             game.level = 1;
             game.Show();
@@ -51,9 +58,10 @@ namespace MainMenu
 
         private void lvl2_Click(object sender, EventArgs e)
         {
+            select.Play();
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
-            else user = "Незнакомец";
+            else user = "NoName";
             Battlefield game = new Battlefield(this);
             game.level = 2;
             game.Show();
@@ -62,9 +70,10 @@ namespace MainMenu
 
         private void lvl3_Click(object sender, EventArgs e)
         {
+            select.Play();
             if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
                 user = Nickname.Text;
-            else user = "Незнакомец";
+            else user = "NoName";
             Battlefield game = new Battlefield(this);
             game.level = 3;
             game.Show();
@@ -74,7 +83,10 @@ namespace MainMenu
         private void EscapeButton_Click(object sender, EventArgs e)
         {
             this.Close();
-            menu.PlayLooping();
+            chooselevel.Stop();
+            menu  = new FLAPPYBIRD.Menu();
+            menu.ShowDialog();
+            select.Play();
 
         }
     }

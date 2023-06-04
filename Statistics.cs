@@ -15,6 +15,7 @@ namespace FLAPPYBIRD
     {
         private StatsClass stats;
         private List<Control> myControls = new List<Control> ();
+
         public Statistics()
         {
             InitializeComponent();

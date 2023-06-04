@@ -27,7 +27,7 @@ namespace FLAPPYBIRD
         public MediaPlayer mediaPlayer = new MediaPlayer();
         public MediaPlayer shooting = new MediaPlayer();
         
-        public SoundPlayer fail = new SoundPlayer(Properties.Resources.lose);
+        private MediaPlayer fail = new MediaPlayer();
 
         public Battlefield(ChooseLevel chslvl)
         {
@@ -154,7 +154,10 @@ namespace FLAPPYBIRD
                 {
                     NewGame();// Перезапуск игры  
                 }
-                else Battlefield.ActiveForm.Close();
+                else
+                {
+                    Battlefield.ActiveForm.Close();
+                }
             }
         }
 
@@ -163,7 +166,8 @@ namespace FLAPPYBIRD
             // эта функция завершения игры, эта функция сработает, когда птица коснется земли или труб
             finalscore = score;
             mediaPlayer.Stop();
-            fail.PlayLooping();
+            fail.Open(new Uri(Environment.CurrentDirectory + "\\lose.wav"));
+            fail.Play();
             using (StreamWriter statsfile = new StreamWriter(Path.GetFullPath("Stats.txt"), true))
             {
                 statsfile.WriteLine(finalscore);
@@ -189,11 +193,10 @@ namespace FLAPPYBIRD
         private void NewGame() //Эта чаcть кода при проигрыше начинает игру заново
         {
             Thread.Sleep(1000);// Игра начнется через 1 секунду
-            fail.Stop();
-
             RestartSound();
           
             // Следующий код возвращает все элементы на иходные позиций
+            fail.Stop();
             flappyBird.Top = 100;
             pipeBottom.Left = Size.Width;
             pipeTop.Left = Size.Width;
@@ -223,6 +226,7 @@ namespace FLAPPYBIRD
 
         private void Battlefield_Load(object sender, EventArgs e)
         {
+
             UserName.Text = "Киберспортсмен: " + chslvl.user;
             RestartSound();
         }
@@ -230,6 +234,8 @@ namespace FLAPPYBIRD
         private void Battlefield_FormClosing(object sender, FormClosingEventArgs e)
         {
             endGame();
+            fail.Stop();
+            fail.Close();
             mediaPlayer.Stop();
             mediaPlayer.Close();
             chslvl.playMusic();

@@ -150,6 +150,7 @@
     <None Include="Resources\fonMenu.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\hit.wav" />
     <Content Include="Resources\lose.wav" />
     <Resource Include="Resources\gaming.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -158,6 +159,7 @@
     <Content Include="Resources\mainmenu.wav" />
     <Content Include="Resources\level1.wav" />
     <Content Include="Resources\level2.wav" />
+    <Content Include="Resources\select.wav" />
     <Content Include="Resources\shoot.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
