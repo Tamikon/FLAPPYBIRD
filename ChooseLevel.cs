@@ -15,12 +15,23 @@ namespace MainMenu
 
         MediaPlayer chooselevel = new MediaPlayer();
         MediaPlayer select = new MediaPlayer();
+        public void lvlpusk(int level)
+        {
+            select.Play();
+            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
+                user = Nickname.Text;
+            else user = "NoName";
+            Battlefield game = new Battlefield(this);
+            game.level = level;
+            game.Show();
+            chooselevel.Stop();
 
-        FLAPPYBIRD.Menu menu;
+        }
 
         public ChooseLevel()
         {
             select.Open(new Uri(Environment.CurrentDirectory + "\\select.wav"));
+            select.Play();
             playMusic();
             InitializeComponent();
         }
@@ -44,50 +55,17 @@ namespace MainMenu
             chooselevel.Play();
         }
 
-        public void lvl1_Click(object sender, EventArgs e)
-        {
-            select.Play();
-            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
-                user = Nickname.Text;
-            else user = "NoName";
-            Battlefield game = new Battlefield(this);
-            game.level = 1;
-            game.Show();
-            chooselevel.Stop();
-        }
+        public void lvl1_Click(object sender, EventArgs e) => lvlpusk(1);
+        private void lvl2_Click(object sender, EventArgs e) => lvlpusk(2);
+        private void lvl3_Click(object sender, EventArgs e) => lvlpusk(3);
 
-        private void lvl2_Click(object sender, EventArgs e)
-        {
-            select.Play();
-            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
-                user = Nickname.Text;
-            else user = "NoName";
-            Battlefield game = new Battlefield(this);
-            game.level = 2;
-            game.Show();
-            chooselevel.Stop();
-        }
-
-        private void lvl3_Click(object sender, EventArgs e)
-        {
-            select.Play();
-            if (Nickname.Text != "" && !Nickname.Text.Contains(" "))
-                user = Nickname.Text;
-            else user = "NoName";
-            Battlefield game = new Battlefield(this);
-            game.level = 3;
-            game.Show();
-            chooselevel.Stop();
-        }
 
         private void EscapeButton_Click(object sender, EventArgs e)
         {
-            this.Close();
             chooselevel.Stop();
-            menu  = new FLAPPYBIRD.Menu();
+            FLAPPYBIRD.Menu menu = new FLAPPYBIRD.Menu();
             menu.ShowDialog();
-            select.Play();
-
+            Close();
         }
     }
 }

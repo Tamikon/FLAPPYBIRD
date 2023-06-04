@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 
 namespace FLAPPYBIRD
 {
@@ -15,10 +16,13 @@ namespace FLAPPYBIRD
     {
         private StatsClass stats;
         private List<Control> myControls = new List<Control> ();
+        private MediaPlayer select = new MediaPlayer();
 
         public Statistics()
         {
             InitializeComponent();
+            select.Open(new Uri(Environment.CurrentDirectory + "\\select.wav"));
+            select.Play();
             stats = new StatsClass();
             if(stats.Names.Count > 0)
             {
@@ -55,7 +59,7 @@ namespace FLAPPYBIRD
             foreach (var item in stats.Names)
             {
                 var cnt = new Label() { Width = 400, Text = item, Location = new Point(10, i), 
-                    Height = 50, ForeColor=Color.White, Font = new Font(new FontFamily("MV Boli"), 30)};
+                    Height = 50, ForeColor=System.Drawing.Color.White, Font = new Font(new System.Drawing.FontFamily("MV Boli"), 30)};
                 myControls.Add(cnt);
                 Controls.Add(cnt);
                 i += 55;
@@ -65,7 +69,7 @@ namespace FLAPPYBIRD
             foreach(var item in stats.Scores)
             {
                 var cnt = new Label() { Text = item, Location = new Point(450, i), 
-                    Height = 50, ForeColor = Color.Red, Font = new Font(new FontFamily("MV Boli"), 30), };
+                    Height = 50, ForeColor = System.Drawing.Color.Red, Font = new Font(new System.Drawing.FontFamily("MV Boli"), 30), };
                 myControls.Add(cnt);
                 Controls.Add(cnt);
                 i += 55;

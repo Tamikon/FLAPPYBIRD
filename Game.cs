@@ -28,6 +28,7 @@ namespace FLAPPYBIRD
         public MediaPlayer shooting = new MediaPlayer();
         
         private MediaPlayer fail = new MediaPlayer();
+        private MediaPlayer select = new MediaPlayer();
 
         public Battlefield(ChooseLevel chslvl)
         {
@@ -35,8 +36,8 @@ namespace FLAPPYBIRD
             DoubleBuffered = true;
             this.chslvl = chslvl;
             UserName.Text = "Киберспортсмен: " + chslvl.user;
-            
-            
+            select.Open(new Uri(Environment.CurrentDirectory + "\\select.wav"));
+
             //C:\Program Files(x86)\Reference Assemblies\Microsoft\Framework.NETFramework\v4.5
         }
 
@@ -229,6 +230,7 @@ namespace FLAPPYBIRD
 
             UserName.Text = "Киберспортсмен: " + chslvl.user;
             RestartSound();
+            select.Play();
         }
 
         private void Battlefield_FormClosing(object sender, FormClosingEventArgs e)

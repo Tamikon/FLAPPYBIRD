@@ -24,7 +24,6 @@ namespace FLAPPYBIRD
             chooseLevel.ShowDialog();
             select.Play();
             this.Close();
-            this.Close();
         } 
 
         private void StatisticsButton_Click(object sender, EventArgs e)
