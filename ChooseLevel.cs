@@ -1,9 +1,6 @@
 ﻿using FLAPPYBIRD;
 using System;
-using System.Diagnostics.Contracts;
 using System.IO;
-using System.Media;
-using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using System.Windows.Media;
 

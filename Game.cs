@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using System.Threading;
 using System.IO;
 using MainMenu;
-using System.Media;
 using System.Windows.Media;
 
 namespace FLAPPYBIRD
