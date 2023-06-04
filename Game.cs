@@ -56,13 +56,7 @@ namespace FLAPPYBIRD
                 var rand = new Random();
                 var randEnemy = rand.Next(0, 380);                
                 pulka.Left += Bullet.speed;
-                if (pulka.Left > Size.Width)
-                {
-                    //todo: удалять по индексу RemoveAt
-                    //bullets.Remove(pulka);
-                    //Controls.Remove(pulka);
-                    //GC.Collect();
-                }
+
                 if (pulka.Bounds.IntersectsWith(Enemy1.Bounds))
                 {
                     Enemy1.Location = new Point(Size.Width, Size.Height - 700 + rand.Next(0, 380));

@@ -8,10 +8,14 @@ namespace MainMenu
 {
     public partial class ChooseLevel : Form
     {
+        public string user;
+        public int score;
+
         private StatsClass statsClass = new StatsClass();
 
         MediaPlayer chooselevel = new MediaPlayer();
         MediaPlayer select = new MediaPlayer();
+
         public void lvlpusk(int level)
         {
             select.Play();
@@ -32,9 +36,6 @@ namespace MainMenu
             playMusic();
             InitializeComponent();
         }
-
-        public string user;
-        public int score;
 
         public void SaveScore()
         {
